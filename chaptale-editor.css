@@ -152,7 +152,7 @@ html-editor {
   background-color: var(--chaptale-bg);
   color: var(--chaptale-text-color);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.25;
 }
 
 .visual-editor:focus {
@@ -181,8 +181,9 @@ html-editor {
 }
 
 .visual-editor p {
-  margin-top: 0;
-  margin-bottom: 0.85rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.25 !important;
 }
 
 .visual-editor ul,

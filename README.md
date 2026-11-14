@@ -31,6 +31,10 @@ Designed as a modern, clean, and blazingly fast alternative to bloated legacy ed
 <script src="chaptale-editor.js"></script>
 ```
 
+&nbsp;
+
+
+
 ### 2. Add the Tag
 ```html
 <!-- LTR Example -->
@@ -40,6 +44,7 @@ Designed as a modern, clean, and blazingly fast alternative to bloated legacy ed
 <chaptale-editor dir="rtl" placeholder="Type here in RTL..."></chaptale-editor>
 ```
 
+&nbsp;
 ### 3. JavaScript API
 ```javascript
 const editor = document.querySelector('chaptale-editor');
@@ -55,8 +60,10 @@ editor.addEventListener('input', () => {
   console.log('Content changed:', editor.value);
 });
 ```
+&nbsp;
 
 ---
+
 
 ## License
 

@@ -1864,7 +1864,8 @@ class HtmlEditor extends HTMLElement {
   }
 
   updateDirectionUI() {
-    if (!this.visualEditor) return;
+    if (!this.visualEditor || this._isUpdatingDir) return;
+    this._isUpdatingDir = true;
 
     const dir = (this.direction === 'rtl') ? 'rtl' : 'ltr';
     if (this.getAttribute('dir') !== dir) {
@@ -1890,6 +1891,8 @@ class HtmlEditor extends HTMLElement {
       bubbles: true,
       composed: true
     }));
+
+    this._isUpdatingDir = false;
   }
 
   updateLocalizedTexts() {

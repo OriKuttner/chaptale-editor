@@ -135,7 +135,7 @@ body {
   padding: 1.25rem;
   min-height: 120px;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.25;
   color: #1e293b;
 }
 
@@ -148,7 +148,9 @@ body {
 }
 
 .live-rendered-preview p {
-  margin-bottom: 0.8em;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.25 !important;
 }
 
 .live-rendered-preview blockquote {
