@@ -1,0 +1,383 @@
+/* ==========================================================================
+   Chaptale Editor - Standalone CSS
+   Lightweight, Zero-Dependency HTML WYSIWYG Editor
+   Mozilla Public License 2.0 (MPL 2.0)
+   ========================================================================== */
+
+:root {
+  --chaptale-bg: #ffffff;
+  --chaptale-toolbar-bg: #f8fafc;
+  --chaptale-border-color: #e2e8f0;
+  --chaptale-border-hover: #cbd5e1;
+  --chaptale-text-color: #0f172a;
+  --chaptale-muted-color: #64748b;
+  --chaptale-primary-color: #3b82f6;
+  --chaptale-primary-hover: #2563eb;
+  --chaptale-btn-bg: #ffffff;
+  --chaptale-btn-border: #cbd5e1;
+  --chaptale-btn-active-bg: #e2e8f0;
+  --chaptale-btn-active-border: #94a3b8;
+  --chaptale-radius: 8px;
+}
+
+/* Component Host */
+chaptale-editor,
+html-editor {
+  display: block;
+  background-color: var(--chaptale-bg);
+  border: 1px solid var(--chaptale-border-color);
+  border-radius: var(--chaptale-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--chaptale-text-color);
+}
+
+/* Container */
+.html-editor-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+/* ==========================================================================
+   Toolbars (Desktop & Mobile)
+   ========================================================================== */
+.editor-toolbar {
+  background-color: var(--chaptale-toolbar-bg);
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--chaptale-border-color);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.editor-toolbar-desktop {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 6px;
+}
+
+.editor-toolbar-mobile {
+  display: none !important;
+}
+
+/* Responsive breakpoint for mobile toolbar */
+@media (max-width: 768px) {
+  .editor-toolbar-desktop {
+    display: none !important;
+  }
+  .editor-toolbar-mobile {
+    display: flex !important;
+    position: relative;
+    z-index: 100;
+    gap: 6px;
+    padding: 6px;
+  }
+}
+
+/* Toolbar Buttons & Dividers */
+.editor-toolbar .toolbar-formatting {
+  display: flex;
+  gap: 3px;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.editor-toolbar button,
+.editor-toolbar .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  line-height: 1;
+  font-weight: 500;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--chaptale-btn-border);
+  background: var(--chaptale-btn-bg);
+  color: var(--chaptale-text-color);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.editor-toolbar button:hover,
+.editor-toolbar .btn:hover {
+  background-color: #f1f5f9;
+  border-color: var(--chaptale-border-hover);
+}
+
+.editor-toolbar button.active,
+.editor-toolbar .btn.active {
+  background-color: var(--chaptale-btn-active-bg) !important;
+  border-color: var(--chaptale-btn-active-border) !important;
+  color: var(--chaptale-text-color) !important;
+}
+
+/* Separator Line in Desktop Toolbar */
+.toolbar-divider {
+  border-left: 1px solid var(--chaptale-btn-border);
+  height: 20px;
+  margin: 0 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Heading Buttons Styling (H1, H2, H3, P)
+   ========================================================================== */
+.btn-h1, .btn-h2, .btn-h3, .btn-p {
+  font-weight: 600;
+  min-width: 28px;
+}
+
+.btn-h1 { font-size: 0.95rem; }
+.btn-h2 { font-size: 0.9rem; }
+.btn-h3 { font-size: 0.85rem; }
+.btn-p  { font-size: 0.85rem; }
+
+/* ==========================================================================
+   Visual Editor Area (contenteditable)
+   ========================================================================== */
+.visual-editor {
+  min-height: 300px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+  outline: none;
+  background-color: var(--chaptale-bg);
+  color: var(--chaptale-text-color);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.visual-editor:focus {
+  outline: none;
+}
+
+.visual-editor h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.visual-editor h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.visual-editor h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.visual-editor p {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+}
+
+.visual-editor ul,
+.visual-editor ol {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  padding-inline-start: 1.75rem;
+}
+
+.visual-editor blockquote {
+  border-inline-start: 3px solid var(--chaptale-primary-color);
+  margin: 0.85rem 0;
+  padding: 0.5rem 1rem;
+  color: var(--chaptale-muted-color);
+  background-color: #f8fafc;
+}
+
+.visual-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Code View Mode (Source HTML)
+   ========================================================================== */
+.code-editor {
+  min-height: 300px;
+  max-height: 70vh;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  box-sizing: border-box;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background-color: #0f172a;
+  color: #f8fafc;
+  border: none;
+  outline: none;
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Status Bar (Word count, Autosave)
+   ========================================================================== */
+.tinymce-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--chaptale-toolbar-bg);
+  border-top: 1px solid var(--chaptale-border-color);
+  font-size: 0.75rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: var(--chaptale-muted-color);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ==========================================================================
+   Mobile Dropdowns (Vector Style)
+   ========================================================================== */
+.mobile-dropdown-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+}
+
+.btn-mobile-dropdown-toggle {
+  width: 100%;
+  padding: 7px 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #ffffff;
+  border: 1px solid var(--chaptale-btn-border);
+  border-radius: 6px;
+  color: var(--chaptale-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.mobile-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  background: #ffffff;
+  border: 1px solid var(--chaptale-border-color);
+  border-radius: 8px;
+  padding: 6px 0;
+  min-width: 180px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+}
+
+.mobile-dropdown-menu.align-screen-right {
+  inset-inline-start: 0;
+}
+
+.mobile-dropdown-menu.align-screen-left {
+  inset-inline-end: 0;
+}
+
+.mobile-dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: var(--chaptale-text-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: start;
+}
+
+.mobile-dropdown-menu .dropdown-item:hover {
+  background-color: #f1f5f9;
+}
+
+.mobile-dropdown-menu .dropdown-divider {
+  height: 1px;
+  background-color: var(--chaptale-border-color);
+  margin: 4px 0;
+}
+
+.mobile-dropdown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+/* ==========================================================================
+   Code Mode & Single Visual View Bar Rules
+   ========================================================================== */
+.mobile-code-mode-bar {
+  display: none !important;
+}
+
+.chaptale-editor-root.is-code-mode .code-editor-wrapper {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.chaptale-editor-root.is-code-mode .visual-editor-wrapper {
+  display: none !important;
+}
+
+.chaptale-editor-root.is-code-mode .code-mode-title {
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+
+
+/* ==========================================================================
+   RTL & Bi-directional Support Rules
+   ========================================================================== */
+chaptale-editor[dir="rtl"],
+chaptale-editor[dir="rtl"] .html-editor-container,
+chaptale-editor[dir="rtl"] .visual-editor,
+chaptale-editor[dir="rtl"] .visual-editor p,
+chaptale-editor[dir="rtl"] .visual-editor h1,
+chaptale-editor[dir="rtl"] .visual-editor h2,
+chaptale-editor[dir="rtl"] .visual-editor h3,
+chaptale-editor[dir="rtl"] .visual-editor ul,
+chaptale-editor[dir="rtl"] .visual-editor ol,
+chaptale-editor[dir="rtl"] .code-editor {
+  direction: rtl;
+  text-align: right;
+}
+
+chaptale-editor[dir="ltr"],
+chaptale-editor[dir="ltr"] .html-editor-container,
+chaptale-editor[dir="ltr"] .visual-editor,
+chaptale-editor[dir="ltr"] .visual-editor p,
+chaptale-editor[dir="ltr"] .visual-editor h1,
+chaptale-editor[dir="ltr"] .visual-editor h2,
+chaptale-editor[dir="ltr"] .visual-editor h3,
+chaptale-editor[dir="ltr"] .visual-editor ul,
+chaptale-editor[dir="ltr"] .visual-editor ol,
+chaptale-editor[dir="ltr"] .code-editor {
+  direction: ltr;
+  text-align: left;
+}
+
+chaptale-editor[dir="rtl"] .editor-toolbar,
+chaptale-editor[dir="rtl"] .tinymce-statusbar {
+  direction: rtl;
+}
+
+chaptale-editor[dir="ltr"] .editor-toolbar,
+chaptale-editor[dir="ltr"] .tinymce-statusbar {
+  direction: ltr;
+}

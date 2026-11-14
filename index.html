@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaptale Editor - Demo</title>
+
+  <!-- Icons: FontAwesome 6 (Used by Editor Toolbar) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Chaptale Editor Stylesheet -->
+  <link rel="stylesheet" href="chaptale-editor.css">
+
+  <!-- Demo Page Stylesheet -->
+  <link rel="stylesheet" href="demo.css">
+
+  <!-- Core Chaptale Editor Component -->
+  <script src="chaptale-editor.js" defer></script>
+
+  <!-- Demo Page Logic -->
+  <script src="demo.js" defer></script>
+</head>
+<body>
+
+  <div class="demo-container">
+    <header class="demo-header">
+      <h1>
+        <i class="fa-solid fa-pen-nib"></i>
+        Chaptale Editor
+      </h1>
+
+      <div class="demo-controls">
+        <!-- Direction Control -->
+        <div class="btn-group">
+          <button id="btn-ltr" class="btn active" title="Left-to-Right layout">LTR</button>
+          <button id="btn-rtl" class="btn" title="Right-to-Left layout">RTL</button>
+        </div>
+
+        <!-- Language Control -->
+        <div class="btn-group">
+          <button id="btn-en" class="btn active" title="English UI">EN</button>
+          <button id="btn-he" class="btn" title="Hebrew UI">עברית</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Editor Wrapper Card -->
+    <main class="editor-card">
+      <chaptale-editor id="main-editor" dir="ltr" lang="en">
+        <h2>Welcome to Chaptale Editor</h2>
+        <p>A fast, lightweight, zero-dependency WYSIWYG HTML editor crafted as a modern alternative to TinyMCE.</p>
+        <p>Key highlights:</p>
+        <ul>
+          <li><strong>Zero Dependencies:</strong> Built with pure Vanilla Web Components.</li>
+          <li><strong>Native BIDI:</strong> Seamless support for both LTR and RTL languages.</li>
+          <li><strong>Semantic HTML:</strong> Generates clean, standard HTML code without clutter.</li>
+        </ul>
+        <p>Try editing this text, changing heading levels (H1, H2, H3), or formatting inline text using the toolbar above.</p>
+      </chaptale-editor>
+    </main>
+
+    <!-- Real-time Live Preview Section -->
+    <section class="output-preview-section">
+      <div class="output-preview-header">
+        <h3 id="preview-title"><i class="fa-solid fa-eye"></i> Real-time Live Preview (Rendered Output)</h3>
+        <div class="btn-group">
+          <button id="btn-show-visual" class="btn active"><i class="fa-solid fa-desktop"></i> Visual</button>
+          <button id="btn-show-code" class="btn"><i class="fa-solid fa-code"></i> HTML Code</button>
+        </div>
+      </div>
+      <div id="live-visual-output" class="live-rendered-preview"></div>
+      <pre id="live-html-output" class="html-output" style="display: none;"></pre>
+    </section>
+  </div>
+
+</body>
+</html>
